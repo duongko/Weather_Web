@@ -1,17 +1,32 @@
-const WeatherCity = () => {
+import { set } from "lodash"
+import { BiBody } from "react-icons/bi"
+
+
+const WeatherCity = (props) => {
+    const { nhietdo, wind, visibility, pressure, humidit, windspeed, clouds, namecity, iconWeather } = props
+    const cloud = "cloud"
+    const weather_status = "weather-status"
+
+
+
+
+
+
     return (
 
         <div className="weather_day-forecast">
-            <div className="weather-status">
+            <div id="weather-status" className={wind ? wind : "weather-default"}
+
+            >
                 <div className="p24">
                     <div className="country">
                         <div className="weather-icon">
-                            <div className="weather_sun-icon sun-icon">
-                                <i className="fa-solid fa-cloud-sun"></i>
-                            </div>
+
+                            <img style={{ "position": "absolute", "left": 0, 'width': '51px' }} className="fa-solid fa-cloud-sun" src={`https://openweathermap.org/img/wn/${iconWeather}@2x.png`} />
+
                         </div>
                         <div className="country-desc">
-                            <h3 className="country-name">HaNoi</h3>
+                            <h3 className="country-name">{namecity}</h3>
                             <span className="weather-feeling">What's the weather</span>
                         </div>
                     </div>
@@ -20,28 +35,28 @@ const WeatherCity = () => {
                     <div className="weather-temp">
                         <div className="weather-temp-contains">
                             <div className="weather-temp_max">
-                                <span className="temp temp_max">35<sup>o</sup>C</span>
+                                <span className="temp temp_max">{nhietdo}<sup>o</sup>C</span>
                             </div>
                             <div className="weather-temp_min">
-                                <span className="temp_min">35<sup>o</sup>C</span>
+                                <span className="temp_min">{nhietdo}<sup>o</sup>C</span>
                             </div>
                         </div>
-                        <div className="weather-temp-title">Few CLouds</div>
+                        <div className="weather-temp-title">{wind}</div>
                     </div>
 
                     {/* <!-- weather-more-status --> */}
                     <div className="weather_info">
                         <div className="status pressure">
                             <div className="pressure-title">Pressure</div>
-                            <div className="status-desc">1005 hPa</div>
+                            <div className="status-desc">{pressure} hPa</div>
                         </div>
                         <div className="status visibility">
                             <div className="visibility-title">Visibility</div>
-                            <div className="status-desc">10 Km</div>
+                            <div className="status-desc">{visibility} m</div>
                         </div>
                         <div className="status humadidy">
                             <div className="humadidy-title">Humadidy</div>
-                            <div className="status-desc">50%</div>
+                            <div className="status-desc">{humidit}%</div>
                         </div>
                     </div>
                 </div>
@@ -52,7 +67,7 @@ const WeatherCity = () => {
                 <div className="p24">
                     <div className="country">
                         <div className="weather-icon">
-                            <i className="fa-solid fa-wind"></i>
+                            <img style={{ "position": "absolute", "left": 0, 'width': '51px' }} className="fa-solid fa-cloud-sun" src={`https://openweathermap.org/img/wn/${iconWeather}@2x.png`} />
                         </div>
                         <div className="country-desc">
                             <h3 className="country-name">Wind</h3>
@@ -64,23 +79,23 @@ const WeatherCity = () => {
                     <div className="weather-temp">
                         <div className="weather-temp-contains">
                             <div className="weather-temp_max">
-                                <span className="temp wind-direction">5km</span>
+                                <span className="temp wind-direction">{windspeed}km</span>
                             </div>
                         </div>
-                        <div className="weather-temp-title">Few CLouds</div>
+                        <div className="weather-temp-title">{wind}</div>
                     </div>
                     {/* <!-- block range --> */}
                     <div className="status wind_block">
                         <div className="wind_block-title">Clouds</div>
                         <div className="wind_block-range">
-                            <input className="wind-range" type="range" min="0" max="100" value="100" step="1" />
-                            <div className="wind_block-range-percent"></div>
-                            <span className="wind-percent"><span className="wind_value">20%</span></span>
+                            <input className="wind-range" min="0" max="100" step="1" />
+                            <div className="wind_block-range-percent" style={{ "width": `${clouds}%` }}></div>
+                            <span className="wind-percent" style={{ "left": `calc(${clouds}% - 18px)` }}><span className="wind_value">{clouds}%</span></span>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </div >
     )
 }
 

@@ -1,4 +1,7 @@
-const WeatherPredic = () => {
+import { BiCalendar } from "react-icons/bi"
+
+const WeatherPredic = (props) => {
+    const { show, setshow } = props
 
     return (
         <div className="prediction">
@@ -25,9 +28,14 @@ const WeatherPredic = () => {
                     </div>
                 </div>
                 <div className="next_btn">
-                    <div className="btn_block">
-                        <i className="fa-regular fa-calendar-days"></i>
-                        <button className="next_title">Next 5 days</button>
+                    <div className="btn_block" onClick={() => { setshow(!show) }}>
+                        <i className="fa-regular fa-calendar-days" style={{ 'font-size': "16px" }}><BiCalendar /></i>
+                        <button className="next_title" >
+
+                            {show == true ? "Next 5 days" : "Back Today"}
+
+
+                        </button>
                     </div>
                 </div>
             </div>
