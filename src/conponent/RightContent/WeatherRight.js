@@ -21,6 +21,7 @@ const WeatherRight = (props) => {
 
 
     const [country, setcountry] = useState('VN')
+    const [List5day, setList5day] = useState([])
     useEffect(() => {
 
         Weather()
@@ -43,6 +44,7 @@ const WeatherRight = (props) => {
             setsunrise(res.data.sys.sunrise)
             setsunset(res.data.sys.sunset)
 
+
         }
 
 
@@ -56,6 +58,7 @@ const WeatherRight = (props) => {
         if (res.data.forecast.forecastday) {
 
             setuv(res.data.current.uv)
+            setList5day(res.data.forecast.forecastday)
         }
 
     }
@@ -95,6 +98,7 @@ const WeatherRight = (props) => {
                 <WeatherPredic
                     show={show}
                     setshow={setshow}
+                    List5day={List5day}
                 />
             </div>
         </div>

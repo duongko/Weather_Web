@@ -1,16 +1,38 @@
+import moment from "moment";
+
 const WeatherHour = (props) => {
     const { cityname, List3hour, List5day, show, setshow } = props
-
-
-    if (List5day.length > 0) {
-
-        console.log("ngày mới:", List5day)
-    }
 
     const currentDate = new Date();
     let hour = currentDate.getHours()
 
+    let day = currentDate.getDay()
 
+    // }
+    // switch (current_day) {
+    //     case 0:
+    //        "Chủ nhật";
+    //         break;
+    //     case 1:
+    //        "Thứ hai";
+    //         break;
+    //     case 2:
+    //        "Thứ ba";
+    //         break;
+    //     case 3:
+    //        "Thứ tư";
+    //         break;
+    //     case 4:
+    //        "Thứ năm";
+    //         break;
+    //     case 5:
+    //        "Thứ sau";
+    //         break;
+    //     case 6:
+    //        "Thứ bảy";
+    //     }
+
+    let ngay = ''
 
     return (
         <div className="weather_day-forecast">
@@ -45,7 +67,7 @@ const WeatherHour = (props) => {
 
                                         <li className="chart_item" key={index}>
                                             <div className="chart_hour">{hour > 24 ? hour - 24 : hour}h</div>
-                                            <div className="chart_item-icon cloud_icon"><img style={{ "width": '72%' }} className="fa-solid fa-cloud-rain" src={value.weather[0].icon ? `https://openweathermap.org/img/wn/${value.weather[0].icon}@2x.png` : '#'} /></div>
+                                            <div className="chart_item-icon cloud_icon"><img style={{ "width": '59%' }} className="fa-solid fa-cloud-rain" src={value.weather[0].icon ? `https://openweathermap.org/img/wn/${value.weather[0].icon}@2x.png` : '#'} /></div>
                                             <div className="chart_temp">{value.main.temp}<sup>o</sup>C</div>
                                         </li>
 
@@ -95,10 +117,12 @@ const WeatherHour = (props) => {
 
 
 
+
+
                                 return (
 
                                     <li className="chart_item" key={index}>
-                                        <div className="chart_hour">{value.date}</div>
+                                        <div className="chart_hour">thứ {moment(List5day[index].date)._d.getDay() == 0 ? "CN" : moment(List5day[index].date)._d.getDay() + 1}</div>
                                         <div className="chart_item-icon cloud_icon"><img style={{ "width": '72%' }} className="fa-solid fa-cloud-rain" src={value.day.condition.icon} /></div>
                                         <div className="chart_temp">{value.day.avgtemp_c}<sup>o</sup>C</div>
                                     </li>
@@ -144,7 +168,7 @@ const WeatherHour = (props) => {
                     </div>
 
                     <div className="tomorrow_status">
-                        <div className="tomorrow_temp">{List5day.length > 0 ? List5day[1].day.maxtemp_c : ""}<sup>o</sup>C</div>
+                        <div className="tomorrow_temp">{List5day.length > 0 ? List5day[1].day.avgtemp_c : ""}<sup>o</sup>C</div>
                         <div className="tomorrow_desc">{List5day.length > 0 ? List5day[1].day.condition.text : ''}</div>
                     </div>
                 </div>

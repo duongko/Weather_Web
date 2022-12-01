@@ -1,7 +1,9 @@
+import moment from "moment"
 import { BiCalendar } from "react-icons/bi"
 
 const WeatherPredic = (props) => {
-    const { show, setshow } = props
+    const { show, setshow, List5day } = props
+
 
     return (
         <div className="prediction">
@@ -12,9 +14,9 @@ const WeatherPredic = (props) => {
                     <div className="prediction_desc">
                         <div className="prediction_info">
                             <div className="info_status">Clouds</div>
-                            <div className="prediction_time">Sep 20</div>
+                            <div className="prediction_time">{List5day.length > 0 && List5day[1].date}</div>
                         </div>
-                        <div className="info_temp">33<sup>o</sup>C /33<sup>o</sup>C</div>
+                        <div className="info_temp">{List5day.length > 0 && List5day[1].day.maxtemp_c}<sup>o</sup>C /{List5day.length > 0 && List5day[1].day.mintemp_c}<sup>o</sup>C</div>
                     </div>
                 </div>
                 <div className="prediction_bl prediction_nextTomorrow">
@@ -22,9 +24,9 @@ const WeatherPredic = (props) => {
                     <div className="prediction_desc">
                         <div className="prediction_info">
                             <div className="info_status">Clouds</div>
-                            <div className="prediction_time">Sep 20</div>
+                            <div className="prediction_time">{List5day.length > 0 && List5day[2].date}</div>
                         </div>
-                        <div className="info_temp">33<sup>o</sup>C /33<sup>o</sup>C</div>
+                        <div className="info_temp">{List5day.length > 0 && List5day[2].day.maxtemp_c}<sup>o</sup>C /{List5day.length > 0 && List5day[2].day.mintemp_c}<sup>o</sup>C</div>
                     </div>
                 </div>
                 <div className="next_btn">

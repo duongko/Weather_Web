@@ -8,7 +8,7 @@ import WeatherLeft from './LeftContent/WeatherLeft';
 import { useState } from 'react';
 import { BsFillBarChartFill } from 'react-icons/bs';
 import { FaBinoculars } from 'react-icons/fa';
-import { MdAdminPanelSettings, MdCelebration, MdSettingsAccessibility } from 'react-icons/md';
+import { MdAdminPanelSettings, MdCelebration, MdMic, MdSettingsAccessibility } from 'react-icons/md';
 import 'react-icons/bi'
 import { BiCalendar } from 'react-icons/bi';
 
@@ -39,24 +39,26 @@ const App = () => {
               <ul className="nav-list">
                 <li className="nav-item">
                   <div className="nav_icon active">
-                    <i className="fa-solid fa-chart-column nav_icon-img" style={{ "color": "black" }}><BsFillBarChartFill /></i>
+                    <i className="fa-solid fa-chart-column nav_icon-img" style={{ "color": "black", "fontSize": "20px" }}><BsFillBarChartFill /></i>
                   </div>
                 </li>
                 <li className="nav-item">
                   <div className="nav_icon">
-                    <i className="fa-solid fa-binoculars nav_icon-img" style={{ "color": "black" }}><FaBinoculars /></i>
+                    <i className="fa-solid fa-binoculars nav_icon-img" style={{ "color": "black", "fontSize": "20px" }}><FaBinoculars /></i>
                   </div>
                 </li>
                 <li className="nav-item">
                   <div className="nav_icon">
-                    <i className="fa-solid fa-location-dot nav_icon-img" style={{ "color": "black" }}></i>
+                    <i className="fa-solid fa-location-dot nav_icon-img" style={{ "color": "black", "fontSize": "20px" }}>
+                      <MdMic />
+                    </i>
                   </div>
                 </li>
                 <li className="nav-item">
                   <div className="nav_icon"
                     onClick={() => { setshow(!show) }}
                   >
-                    <i className="fa-regular fa-calendar-days nav_icon-img" style={{ "color": "black" }}
+                    <i className="fa-regular fa-calendar-days nav_icon-img" style={{ "color": "black", "fontSize": "20px" }}
 
                     >
                       <BiCalendar />
@@ -65,7 +67,7 @@ const App = () => {
                 </li>
                 <li className="nav-item">
                   <div className="nav_icon">
-                    <i className="fa-solid fa-gear nav_icon-img" style={{ "color": "black" }}><MdSettingsAccessibility /></i>
+                    <i className="fa-solid fa-gear nav_icon-img" style={{ "color": "black", "fontSize": "20px" }}><MdSettingsAccessibility /></i>
                   </div>
                 </li>
 
