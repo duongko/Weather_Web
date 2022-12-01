@@ -89,7 +89,7 @@ const WeatherHour = (props) => {
                         <ul className="chart_lists">
 
 
-                            {List5day.map((value, index) => {
+                            {List5day.length > 0 && List5day.map((value, index) => {
 
 
 
