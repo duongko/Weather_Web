@@ -14,10 +14,8 @@ const WeatherCity = (props) => {
 
     return (
 
-        <div className="weather_day-forecast">
-            <div id="weather-status" className={wind ? wind : "weather-default"}
-
-            >
+        <div className="weather_day-forecast ">
+            <div id="weather-status" className={` ${wind ? wind : "weather-default"}`}>
                 <div className="p24">
                     <div className="country">
                         <div className="weather-icon">

@@ -27,7 +27,7 @@ body[data-theme='light'] {
 #weather {
   margin: auto;
   max-width: 1400px;
-  width: 97%;
+  width: 100%;
   background-color: var(--bg-main-color);
   display: flex;
   transition: all 0.3s ease;
@@ -38,7 +38,6 @@ body[data-theme='light'] {
 }
 
 #nav {
-  width: 128px;
   padding: 18px 10px 10px 10px;
   background-color: rgb(138, 239, 241);
 }
@@ -93,7 +92,6 @@ body[data-theme='light'] {
   list-style-type: none;
   font-size: 16px;
   color: #666;
-  margin: 13px 0;
   display: flex;
   flex-direction: column;
   padding: 17px
@@ -116,6 +114,8 @@ body[data-theme='light'] {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-top: 30px;
+  margin-bottom: 27px;
 }
 
 .info {
@@ -157,8 +157,13 @@ body[data-theme='light'] {
 
 .weather_day-forecast {
   display: flex;
+
   justify-content: space-between;
   margin-top: 36px;
+}
+
+.weather-status {
+  width: 47%;
 }
 
 .hot {
@@ -167,18 +172,19 @@ body[data-theme='light'] {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  margin-right: 18px;
+  margin-right: 40px;
+
   border-radius: 18px;
   box-shadow: 0 4px 8px 4px rgb(0 0 0 / 5%);
 }
 
 .clouds {
-  width: 100%;
+  width: 98%;
+  margin-right: 40px;
   background-image: url(https://i.pinimg.com/736x/23/3b/43/233b434cf3aa7027ef5670f34c6527cc.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  margin-right: 18px;
   border-radius: 18px;
   box-shadow: 0 4px 8px 4px rgb(0 0 0 / 5%);
 }
@@ -189,29 +195,31 @@ body[data-theme='light'] {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  margin-right: 18px;
+  margin-right: 40px;
+
   border-radius: 18px;
   box-shadow: 0 4px 8px 4px rgb(0 0 0 / 5%);
 }
 
 .rain {
   width: 100%;
+  margin-right: 40px;
   background-image: url(https://s26162.pcdn.co/wp-content/uploads/2016/07/rain-gif.gif);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  margin-right: 18px;
+
   border-radius: 18px;
   box-shadow: 0 4px 8px 4px rgb(0 0 0 / 5%);
 }
 
 .weather-default {
-  width: 100%;
+  width: 98%;
   background-image: url(https://media.giphy.com/media/l2JJtwLTg3AppUgmY/giphy.gif);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  margin-right: 18px;
+  margin-right: 40px;
   border-radius: 18px;
   box-shadow: 0 4px 8px 4px rgb(0 0 0 / 5%);
 }
@@ -266,7 +274,7 @@ body[data-theme='light'] {
   background-color: #fff;
   border-radius: 14px;
   text-align: center;
-  min-width: 108px;
+  width: 108px;
 }
 
 .pressure {
@@ -286,6 +294,7 @@ body[data-theme='light'] {
 
 .day-wind {
   width: 100%;
+  margin-right: 3px;
   background-image: url(https://media.giphy.com/media/l2JJtwLTg3AppUgmY/giphy.gif);
   background-position: center;
   background-repeat: no-repeat;
@@ -312,9 +321,10 @@ body[data-theme='light'] {
 }
 
 
-.wind_block {
+.status.wind_block {
   margin-top: 36px;
   position: relative;
+  width: 100%;
 }
 
 .wind_block-title {
@@ -380,7 +390,7 @@ body[data-theme='light'] {
 }
 
 .chart {
-  flex: 2;
+  flex: 1.5;
 }
 
 .chart_header {
@@ -430,7 +440,7 @@ body[data-theme='light'] {
   margin-top: 6px;
 }
 
-#forecast {
+.forecast {
   background-color: rgba(0, 0, 0, 0.03);
   height: 100%;
   flex-basis: 28%;
@@ -566,11 +576,11 @@ element.style {}
   margin-top: 20px;
 }
 
-#content {
-  width: 100%;
+.content {
+
   flex: 1;
   margin-top: 36px;
-  margin-right: 36px;
+
 }
 
 .uvi {
@@ -786,4 +796,186 @@ element.style {}
   color: #f7812df2;
   font-size: 28px;
   font-weight: 500;
+}
+
+.col-sm-6 {
+
+  width: 48%;
+}
+
+
+.sidebar {
+  z-index: 100;
+  position: absolute;
+  visibility: hidden;
+  opacity: 0;
+
+}
+
+// -----------------------------------------------------REPONSE--------------------------
+
+
+@media only screen and (max-width: 600px) {
+  body {
+    background-color: black;
+  }
+
+  .forecast {
+
+    height: 37%;
+    margin: auto;
+  }
+
+  .container {
+    --bs-gutter-x: 0
+  }
+
+  .hidden {
+    visibility: hidden;
+    position: absolute;
+    z-index: 90;
+    width: 33vw;
+    height: 100vh;
+    transition: 0.3s;
+    transform: translateX(-40vw);
+    position: fixed
+  }
+
+  .chart_header {
+
+    display: block;
+    margin-top: 20px;
+  }
+
+  .show {
+    visibility: visible;
+    position: absolute;
+    z-index: 90;
+    width: 33vw;
+    height: 100vh;
+    transition: 0.3s;
+    transform: translateX(0vw);
+    position: fixed;
+
+    left: 0;
+  }
+
+  .sidebar {
+    visibility: visible;
+
+    opacity: 1;
+    left: 3%;
+    font-size: 23px;
+    top: 4%;
+
+  }
+
+  #nav {
+    background-color: rgb(59 64 64);
+  }
+
+  .sidebar-close {
+    color: #fff;
+    position: absolute;
+    right: 11%;
+    top: 0%;
+    font-size: 22px;
+    cursor: pointer;
+  }
+
+  .nav-logo {
+    margin-top: 52px;
+  }
+
+
+
+  .weather_day-forecast {
+    position: relative;
+    flex-direction: column;
+    width: 90%;
+    margin: auto;
+
+
+  }
+
+  .header {
+    flex-direction: column;
+  }
+
+  .chart_title {
+    font-size: 20px;
+    text-align: center;
+  }
+
+  .status {
+    padding: 0px 13px;
+    font-size: 12px;
+    color: #333;
+    background-color: #fff;
+    border-radius: 14px;
+    text-align: center;
+    width: 104px;
+    height: 65px;
+  }
+
+  .chart_lists {
+    padding: 0
+  }
+
+  .visibility {
+    background-color: #cce16a;
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+
+  .pressure {
+
+    background-color: #19283f;
+    color: #f1f1f1;
+  }
+
+  #weather-status {
+    margin-bottom: 10px;
+    width: 100%;
+    margin-right: 100%;
+    padding: 10px;
+
+  }
+
+  .day-wind {
+    padding: 24px;
+  }
+
+  .p24 {
+
+    padding: 0;
+  }
+
+  ul {
+    padding-left: 0;
+  }
+
+  .weather_chart {
+    width: 101%;
+  }
+
+  .tomorrow {
+    margin-left: 0;
+    margin-bottom: 8%;
+  }
+
+  #weather {
+    padding: 0;
+    margin: 0;
+  }
+
+}
+
+
+@media only screen and (min-width: 576px) {
+  .day-wind {
+    flex: 0 0 auto;
+    width: 48%;
+
+  }
 }

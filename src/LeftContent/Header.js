@@ -1,6 +1,6 @@
 import { useState } from "react"
 import "react-icons/fa"
-import { FaSearch } from "react-icons/fa"
+import { FaBars, FaSearch } from "react-icons/fa"
 
 const Header = (props) => {
 
@@ -26,8 +26,9 @@ const Header = (props) => {
     return (
 
         <header className="header">
+
             {/* <!-- info --> */}
-            <div className="info">
+            <div className="info ">
                 <div className="user-logo">
                     <img className="user-logo_img" src="https://mblan1.github.io/weatherApp/assets//img//user-logo.png" alt="userLogo" style={{ "width": "81px" }} />
                 </div>
@@ -50,6 +51,9 @@ const Header = (props) => {
                 </div>
                 <i className="fa-regular fa-bell bell-icon"></i>
             </div>
+
+
+
         </header>
 
     )

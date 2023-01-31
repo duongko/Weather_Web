@@ -35,7 +35,7 @@ const WeatherRight = (props) => {
     const Weather = async () => {
 
         let res = await GetWeather(cityname)
-        console.log("weather:", res.data)
+        // console.log("weather:", res.data)
         if (res.data) {
             setnamecity(res.data.name)
 
@@ -66,7 +66,7 @@ const WeatherRight = (props) => {
     return (
 
 
-        <div id="forecast">
+        <div className="forecast col-sm-3">
             <div className="forecast_contains">
                 <WeatherInfo
                     namecity={namecity}

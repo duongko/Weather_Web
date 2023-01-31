@@ -9,7 +9,7 @@ import WeatherHour from "./WeatherHour"
 const WeatherLeft = (props) => {
 
     // const [cityname, setcityname] = useState('ha noi')
-    const { cityname, setcityname, show, setshow } = props
+    const { cityname, setcityname, show, setshow, wind, setwind } = props
 
 
     const [namecity, setnamecity] = useState('')
@@ -20,7 +20,7 @@ const WeatherLeft = (props) => {
 
 
     const [nhietdo, setnhietdo] = useState('')
-    const [wind, setwind] = useState()
+    // const [wind, setwind] = useState()
     const [windspeed, setwindspeed] = useState()
 
     const [visibility, setvisibility] = useState('')
@@ -42,6 +42,8 @@ const WeatherLeft = (props) => {
 
         let res = await GetWeather(cityname)
         console.log("weather res:", res)
+
+
         if (res.data) {
 
             setnhietdo(res.data.main.temp)
@@ -59,6 +61,7 @@ const WeatherLeft = (props) => {
 
 
         }
+
 
 
     }
@@ -79,7 +82,7 @@ const WeatherLeft = (props) => {
     const GETDay = async () => {
 
         let res = await GetdayForecast(cityname)
-        console.log("Day forecast", res.data)
+        // console.log("Day forecast", res.data)
 
         if (res.data.forecast.forecastday) {
 
@@ -90,7 +93,7 @@ const WeatherLeft = (props) => {
 
 
     return (
-        <div id="content">
+        <div id="content" className=" content col-sm-9">
             {/* <!-- header --> */}
             <Header
 

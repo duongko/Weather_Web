@@ -15,15 +15,11 @@ const WeatherTime = (props) => {
     let sunsetime = moment.unix(sunset).format("hh:mm a")
     let sumtime = 12 + parseInt(sunsetime) - parseInt(sunrisetime)
     let moc = parseInt(sunrisetime)
+
+
     let hieumoc = (times.getHours() - moc)
 
     let temp = hieumoc / sumtime
-
-
-
-
-
-
 
 
 
